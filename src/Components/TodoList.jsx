@@ -9,8 +9,10 @@ export const TodoList = () => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    console.log("~ todos", todos)
-
+    const getTodos = async () => {
+      dispatch(Actions.todo.setTodos());
+    }
+    getTodos();
   }, [])
   
 
@@ -30,10 +32,9 @@ export const TodoList = () => {
       <ul>
         {todos &&
           todos.map((item) => {
-            return <li>{item}</li>;
+            return <li key={item.id}>{item.title}</li>;
           })}
       </ul>
-
     </div>
   );
 };

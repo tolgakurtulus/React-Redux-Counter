@@ -5,9 +5,14 @@ const addTodo = (todo) => {
   return { type: ActionTypes.todo.ADD_TODO, payload: todo };
 };
 
-const setTodos = async () => {
-  const { data } = axios.get("https://jsonplaceholder.typicode.com/todos");
-  return { type: ActionTypes.todo.SET_TODOS, payload: data };
+const setTodos = () => {
+  return async function (dispatch) {
+    const {data}  = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
+    console.log("~ data", data);
+    dispatch({ type: ActionTypes.todo.SET_TODOS, payload: data });
+  };
 };
 
 const todo = {
