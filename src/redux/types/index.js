@@ -1,9 +1,11 @@
-import * as counter from "./counter";
+import * as count from "./count";
 import * as todo from "./todo";
+import * as user from "./user";
 
 const ActionTypes = {
-  counter,
+  count,
   todo,
+  user,
 };
 
 export default ActionTypes;

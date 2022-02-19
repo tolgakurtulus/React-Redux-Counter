@@ -7,15 +7,13 @@ export const TodoList = () => {
   const todo = useSelector((state) => state.todo);
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     const getTodos = async () => {
       dispatch(Actions.todo.setTodos());
-    }
+    };
     getTodos();
-  }, [])
-  
-
+  }, [dispatch]);
 
   return (
     <div>
